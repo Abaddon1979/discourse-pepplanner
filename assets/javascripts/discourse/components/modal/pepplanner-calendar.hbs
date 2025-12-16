@@ -1,15 +1,17 @@
 <DModal @title="Pepplanner Calendar" @closeModal={{@closeModal}} class="pepplanner-modal">
-    <div class="pepplanner-calendar-container">
-        <h3>Pepplanner Calendar</h3>
-        <p>This is where the calendar interface will live.</p>
-        <div class="control-group">
-            <label>Calendar Notes (Persisted)</label>
-            <Textarea @value={{this.calendarData}} class="pepplanner-calendar-notes" @focus-out={{this.saveData}}
-                style="width: 100%; height: 150px;" />
-        </div>
+    <:body>
+        <div class="pepplanner-calendar-container">
+            <h3>Pepplanner Calendar</h3>
+            <p>This is where the calendar interface will live.</p>
+            <div class="control-group">
+                <label>Calendar Notes (Persisted)</label>
+                <Textarea @value={{this.calendarData}} class="pepplanner-calendar-notes" @focus-out={{this.saveData}}
+                    style="width: 100%; height: 150px;" />
+            </div>
 
-        <div style="border: 1px dashed #ccc; padding: 20px; text-align: center;">
-            [Calendar Widget Placeholder]
+            <div style="border: 1px dashed #ccc; padding: 20px; text-align: center;">
+                [Calendar Widget Placeholder]
+            </div>
         </div>
-    </div>
+    </:body>
 </DModal>
