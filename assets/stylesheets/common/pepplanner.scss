@@ -5,8 +5,44 @@
   .icon {
     &:hover {
       background: var(--primary-low);
+
       .d-icon {
         color: var(--primary);
+      }
+    }
+  }
+}
+
+.pepplanner-modal {
+  .pepplanner-calculator-container {
+    padding: 10px;
+
+    .control-group {
+      margin-bottom: 15px;
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input {
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+
+    .result-area {
+      margin-top: 20px;
+      padding: 15px;
+      background: var(--tertiary-low);
+      border-radius: 5px;
+      text-align: center;
+
+      .result-value {
+        font-size: 2em;
+        font-weight: bold;
+        color: var(--tertiary);
       }
     }
   }

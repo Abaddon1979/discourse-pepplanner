@@ -7,3 +7,6 @@
 enabled_site_setting :pepplanner_enabled
 
 register_asset 'stylesheets/common/pepplanner.scss'
+
+register_svg_icon "calculator" if respond_to?(:register_svg_icon)
+register_svg_icon "calendar-alt" if respond_to?(:register_svg_icon)

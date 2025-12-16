@@ -27,7 +27,13 @@ export default {
                         .on('click', (e) => {
                             e.preventDefault();
                             console.log("Pepplanner: Open Calculator");
-                            alert("Pepplanner Calculator Clicked");
+                            const container = api.container;
+                            if (container.lookup('service:modal')) {
+                                container.lookup('service:modal').show('pepplanner-calculator');
+                            } else {
+                                const modalRoute = container.lookup('route:application');
+                                modalRoute.send('showModal', 'pepplanner-calculator');
+                            }
                         })
                         .append(calcIcon);
 
@@ -42,7 +48,15 @@ export default {
                         .on('click', (e) => {
                             e.preventDefault();
                             console.log("Pepplanner: Open Calendar");
-                            alert("Pepplanner Calendar Clicked");
+                            // Ideally, this would open a similar modal for the calendar
+                            // For now, we will use a placeholder modal or just alert if no modal exists yet
+                            const container = api.container;
+                            if (container.lookup('service:modal')) {
+                                container.lookup('service:modal').show('pepplanner-calendar');
+                            } else {
+                                const modalRoute = container.lookup('route:application');
+                                modalRoute.send('showModal', 'pepplanner-calendar');
+                            }
                         })
                         .append(calIcon);
 
