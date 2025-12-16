@@ -29,8 +29,28 @@ export default {
                         .on('click', (e) => {
                             e.preventDefault();
                             console.log("Pepplanner: Open Calculator");
-                            const modal = api.container.lookup('service:modal');
-                            modal.show(PepplannerCalculator);
+                            const container = api.container;
+                            console.log("Pepplanner: Container:", container);
+
+                            if (!container) {
+                                console.error("Pepplanner: Container is undefined!");
+                                return;
+                            }
+
+                            const modal = container.lookup('service:modal');
+                            console.log("Pepplanner: Modal Service:", modal);
+
+                            if (!modal) {
+                                console.error("Pepplanner: Modal service not found!");
+                                return;
+                            }
+
+                            console.log("Pepplanner: Calculator Component:", PepplannerCalculator);
+                            try {
+                                modal.show(PepplannerCalculator);
+                            } catch (err) {
+                                console.error("Pepplanner: Error showing modal:", err);
+                            }
                         })
                         .append(calcIcon);
 
