@@ -2,22 +2,22 @@
     <div class="pepplanner-calculator-container">
         <div class="control-group">
             <label>Syringe Volume</label>
-            <ComboBox @content={{this.syringeSizes}} @value={{this.syringeSize}} />
+            <ComboBox @content={{this.syringeSizes}} @value={{this.syringeSize}} @onChange={{this.saveSettings}} />
         </div>
 
         <div class="control-group">
             <label>Peptide Amount (mg)</label>
-            <Input @type="number" @value={{this.peptideAmount}} class="input-small" />
+            <Input @type="number" @value={{this.peptideAmount}} class="input-small" @focus-out={{this.saveSettings}} />
         </div>
 
         <div class="control-group">
             <label>Bacteriostatic Water (ml)</label>
-            <Input @type="number" @value={{this.waterAmount}} class="input-small" />
+            <Input @type="number" @value={{this.waterAmount}} class="input-small" @focus-out={{this.saveSettings}} />
         </div>
 
         <div class="control-group">
             <label>Desired Dosage (mcg)</label>
-            <Input @type="number" @value={{this.desiredDosage}} class="input-small" />
+            <Input @type="number" @value={{this.desiredDosage}} class="input-small" @focus-out={{this.saveSettings}} />
         </div>
 
         <div class="result-area">

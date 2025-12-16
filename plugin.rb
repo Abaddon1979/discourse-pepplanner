@@ -10,3 +10,18 @@ register_asset 'stylesheets/common/pepplanner.scss'
 
 register_svg_icon "calculator" if respond_to?(:register_svg_icon)
 register_svg_icon "calendar-alt" if respond_to?(:register_svg_icon)
+
+# Register custom field for calculator settings
+User.register_custom_field_type 'pepplanner_calculator_settings', :json
+User.register_custom_field_type 'pepplanner_calendar_data', :json
+
+DiscoursePluginRegistry.serialized_current_user_fields << 'pepplanner_calculator_settings'
+DiscoursePluginRegistry.serialized_current_user_fields << 'pepplanner_calendar_data'
+
+add_to_serializer(:current_user, :pepplanner_calculator_settings) {
+  object.custom_fields['pepplanner_calculator_settings']
+}
+
+add_to_serializer(:current_user, :pepplanner_calendar_data) {
+  object.custom_fields['pepplanner_calendar_data']
+}

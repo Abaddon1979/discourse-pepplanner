@@ -1,5 +1,7 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import $ from "jquery";
+import PepplannerCalculator from "../components/modal/pepplanner-calculator";
+import PepplannerCalendar from "../components/modal/pepplanner-calendar";
 
 export default {
     name: "pepplanner-header-icons",
@@ -27,13 +29,8 @@ export default {
                         .on('click', (e) => {
                             e.preventDefault();
                             console.log("Pepplanner: Open Calculator");
-                            const container = api.container;
-                            if (container.lookup('service:modal')) {
-                                container.lookup('service:modal').show('pepplanner-calculator');
-                            } else {
-                                const modalRoute = container.lookup('route:application');
-                                modalRoute.send('showModal', 'pepplanner-calculator');
-                            }
+                            const modal = api.container.lookup('service:modal');
+                            modal.show(PepplannerCalculator);
                         })
                         .append(calcIcon);
 
@@ -48,15 +45,8 @@ export default {
                         .on('click', (e) => {
                             e.preventDefault();
                             console.log("Pepplanner: Open Calendar");
-                            // Ideally, this would open a similar modal for the calendar
-                            // For now, we will use a placeholder modal or just alert if no modal exists yet
-                            const container = api.container;
-                            if (container.lookup('service:modal')) {
-                                container.lookup('service:modal').show('pepplanner-calendar');
-                            } else {
-                                const modalRoute = container.lookup('route:application');
-                                modalRoute.send('showModal', 'pepplanner-calendar');
-                            }
+                            const modal = api.container.lookup('service:modal');
+                            modal.show(PepplannerCalendar);
                         })
                         .append(calIcon);
 
