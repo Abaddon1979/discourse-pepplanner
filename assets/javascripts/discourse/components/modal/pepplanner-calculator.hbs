@@ -1,0 +1,29 @@
+<DModal @title="Peptide Calculator" @closeModal={{@closeModal}} class="pepplanner-modal">
+    <div class="pepplanner-calculator-container">
+        <div class="control-group">
+            <label>Syringe Volume</label>
+            <ComboBox @content={{this.syringeSizes}} @value={{this.syringeSize}} />
+        </div>
+
+        <div class="control-group">
+            <label>Peptide Amount (mg)</label>
+            <Input @type="number" @value={{this.peptideAmount}} class="input-small" />
+        </div>
+
+        <div class="control-group">
+            <label>Bacteriostatic Water (ml)</label>
+            <Input @type="number" @value={{this.waterAmount}} class="input-small" />
+        </div>
+
+        <div class="control-group">
+            <label>Desired Dosage (mcg)</label>
+            <Input @type="number" @value={{this.desiredDosage}} class="input-small" />
+        </div>
+
+        <div class="result-area">
+            <h4>Draw to:</h4>
+            <div class="result-value">{{this.calculatedUnits}} units</div>
+            <div class="result-value">{{this.calculatedTicks}} tics</div>
+        </div>
+    </div>
+</DModal>
