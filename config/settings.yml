@@ -1,0 +1,4 @@
+plugins:
+  pepplanner_enabled:
+    default: true
+    client: true

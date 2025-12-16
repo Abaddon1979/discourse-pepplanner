@@ -1,0 +1,13 @@
+// Pepplanner Plugin Styles
+
+.header-icon.pepplanner-calendar,
+.header-icon.pepplanner-calculator {
+  .icon {
+    &:hover {
+      background: var(--primary-low);
+      .d-icon {
+        color: var(--primary);
+      }
+    }
+  }
+}
